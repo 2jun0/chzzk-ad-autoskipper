@@ -12,5 +12,5 @@ export const triggerClick = el => {
 };
 
 export const log = (...args) => {
-    console.debug('[chzzk-ad-skipper]', args);
+    console.debug('[chzzk-ad-skipper]', ...args);
 };
