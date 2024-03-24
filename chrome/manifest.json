@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "name": "치지직 광고 스키퍼",
+    "description": "치지직의 광고 스킵 버튼을 자동으로 눌러줍니다. (광고 차단이 아님)",
+    "version": "1.0",
+    "icons": {
+        "32": "assets/logo/32.png",
+        "64": "assets/logo/64.png",
+        "128": "assets/logo/128.png"
+    },
+    "web_accessible_resources": [
+        {
+          "resources": [
+            "js/content_scripts/skipad.js",
+            "js/common/utils.js"
+          ],
+          "matches": ["<all_urls>"]
+        }
+      ],
+    "content_scripts": [
+        {
+          "js": ["js/content_scripts/module_loader.js"],
+          "matches": [
+            "*://chzzk.naver.com/live/*"
+          ],
+          "run_at": "document_end"
+        }
+      ],
+    "permissions": ["declarativeContent"]
+  }
