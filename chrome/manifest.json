@@ -21,7 +21,7 @@
         {
           "js": ["js/content_scripts/module_loader.js"],
           "matches": [
-            "*://chzzk.naver.com/live/*"
+            "*://chzzk.naver.com/*"
           ],
           "run_at": "document_end"
         }
