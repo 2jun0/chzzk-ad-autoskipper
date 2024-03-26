@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "치지직 광고 스키퍼",
     "description": "치지직의 광고 스킵 버튼을 자동으로 눌러줍니다. (광고 차단이 아님)",
-    "version": "1.0",
+    "version": "1.1",
     "icons": {
         "32": "assets/logo/32.png",
         "64": "assets/logo/64.png",
