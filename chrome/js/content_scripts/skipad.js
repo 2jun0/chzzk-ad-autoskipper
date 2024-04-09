@@ -25,7 +25,7 @@ const findActiveSkipBtn = () => {
 
 /** Check if the skip button exists then, click the skip button. */
 const tryClickSkipBtn = () => {
-    const skipBtn = findActiveSkipBtn();
+    const skipBtn = findSkipBtn();
     if (skipBtn) {
         log('found skip button');
         triggerClick(skipBtn);
