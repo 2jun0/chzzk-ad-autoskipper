@@ -71,6 +71,5 @@ const initInterval = () => {
 
 export const main = () => {
     /** Check if this tab window url is https://chzzk.naver.com */
-    if (/.*:\/\/.*chzzk.naver.com\/.*/.test(document.referrer || document.URL))
-        initInterval();
+    if (/.*:\/\/.*chzzk.naver.com\/.*/.test(document.URL)) initInterval();
 };
