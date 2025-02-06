@@ -6,6 +6,7 @@ const SELECTOR = {
         '.pzp-setting-quality-pane__list .pzp-ui-setting-pane-item.pzp-ui-setting-pane-item--checked',
     QUALITY_MENU_ITEM:
         '.pzp-setting-quality-pane__list .pzp-ui-setting-pane-item',
+    AD_BLOCK_CONFRIM_MODAL: '.popup_container__Aqx-3.popup_modal__hRwfq',
 };
 
 var intervalId;
@@ -26,6 +27,16 @@ const tryClickSkipBtn = () => {
     if (skipBtn) {
         log('found skip button');
         triggerClick(skipBtn);
+    }
+};
+
+const tryDisableAdBlockConfirmModal = () => {
+    const adBlockConfirmModal = document.querySelector(
+        SELECTOR.AD_BLOCK_CONFRIM_MODAL,
+    );
+    if (adBlockConfirmModal) {
+        log('found ad block confirm modal');
+        adBlockConfirmModal.remove();
     }
 };
 
@@ -53,6 +64,7 @@ const initObserver = () => {
 
     observer = new MutationObserver(() => {
         tryClickSkipBtn();
+        tryDisableAdBlockConfirmModal();
 
         if (!hasUpdatedVideoQuality) {
             hasUpdatedVideoQuality = trySetVideoQualityHighest();
