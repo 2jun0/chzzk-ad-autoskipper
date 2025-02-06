@@ -2,6 +2,10 @@ import { triggerClick, log } from '../common/utils.js';
 
 const SELECTOR = {
     BTN_SKIP_AD: 'button.btn_skip',
+    SELECTED_QUALITY_MENU_ITEM:
+        '.pzp-setting-quality-pane__list .pzp-ui-setting-pane-item.pzp-ui-setting-pane-item--checked',
+    QUALITY_MENU_ITEM:
+        '.pzp-setting-quality-pane__list .pzp-ui-setting-pane-item',
 };
 
 var intervalId;
@@ -25,6 +29,18 @@ const tryClickSkipBtn = () => {
     }
 };
 
+const trySetVideoQualityHighest = () => {
+    const highestQualityMenuItem = document.querySelector(
+        SELECTOR.QUALITY_MENU_ITEM,
+    );
+    if (highestQualityMenuItem) {
+        log('found highest quality menu item');
+        triggerClick(highestQualityMenuItem);
+        return true;
+    }
+    return false;
+};
+
 /** Init the ad skip button observer */
 const initObserver = () => {
     if (!('MutationObserver' in window)) return false;
@@ -33,8 +49,14 @@ const initObserver = () => {
 
     if (!htmlEl) return false;
 
+    let hasUpdatedVideoQuality = false;
+
     observer = new MutationObserver(() => {
         tryClickSkipBtn();
+
+        if (!hasUpdatedVideoQuality) {
+            hasUpdatedVideoQuality = trySetVideoQualityHighest();
+        }
     });
 
     observer.observe(htmlEl, { childList: true, subtree: true });
