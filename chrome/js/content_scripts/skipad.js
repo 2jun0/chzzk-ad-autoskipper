@@ -12,16 +12,16 @@ const findSkipBtn = () => {
 };
 
 /* Check if skip ad button hide */
-const hasHidden = skipBtn => {
-    return skipBtn.classList.contains('hide');
-};
+// const hasHidden = skipBtn => {
+//     return skipBtn.classList.contains('hide');
+// };
 
-const findActiveSkipBtn = () => {
-    const skipBtn = findSkipBtn();
-    if (skipBtn && !hasHidden(skipBtn)) {
-        return skipBtn;
-    }
-};
+// const findActiveSkipBtn = () => {
+//     const skipBtn = findSkipBtn();
+//     if (skipBtn && !hasHidden(skipBtn)) {
+//         return skipBtn;
+//     }
+// };
 
 /** Check if the skip button exists then, click the skip button. */
 const tryClickSkipBtn = () => {
