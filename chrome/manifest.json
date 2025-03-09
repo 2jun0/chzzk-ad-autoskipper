@@ -10,20 +10,19 @@
     },
     "web_accessible_resources": [
         {
-          "resources": [
-            "js/content_scripts/skipad.js",
-            "js/common/utils.js"
-          ],
+            "resources": ["js/content_scripts/skipad.js", "js/common/utils.js"],
           "matches": ["<all_urls>"]
         }
       ],
     "content_scripts": [
         {
           "js": ["js/content_scripts/module_loader.js"],
-          "matches": [
-            "*://chzzk.naver.com/*"
-          ],
+            "matches": ["*://chzzk.naver.com/*"],
           "run_at": "document_end"
         }
-      ]
-  }
+    ],
+    "background": {
+        "service_worker": "js/background/service_worker.js",
+        "type": "module"
+    }
+}
