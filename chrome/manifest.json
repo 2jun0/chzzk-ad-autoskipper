@@ -17,12 +17,12 @@
     "content_scripts": [
         {
             "js": ["js/content_scripts/module_loader.js"],
-            "matches": ["*://chzzk.naver.com/*"],
-            "run_at": "document_end"
+            "matches": ["*://chzzk.naver.com/*", "*://mul.live/*"],
+            "run_at": "document_end",
+            "all_frames": true
         }
     ],
     "background": {
-        "service_worker": "js/background/service_worker.js",
-        "type": "module"
+        "service_worker": "js/background/service_worker.js"
     }
 }
